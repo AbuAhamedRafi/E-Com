@@ -53,6 +53,10 @@ route::get('delete_cart/{id}',[HomeController::class,'delete_cart'])->middleware
 
 route::post('confirm_order',[HomeController::class,'confirm_order'])->middleware(['auth','verified']);
 
+route::get('shop',[HomeController::class,'shop']);
+
+route::get('why',[HomeController::class,'why']);
+
 Route::controller(HomeController::class)->group(function(){
     Route::get('stripe/{value}', 'stripe');
     Route::post('stripe/{value}', 'stripePost')->name('stripe.post');
@@ -65,4 +69,3 @@ route::get('on_the_way/{id}',[AdminController::class,'on_the_way'])-> middleware
 route::get('delivered/{id}',[AdminController::class,'delivered'])-> middleware(['auth', 'admin']);
 
 route::get('print_receipt/{id}',[AdminController::class,'print_receipt'])-> middleware(['auth', 'admin']);
-
