@@ -7,10 +7,7 @@
 
 <body>
     <div class="hero_area">
-        <!-- header section strats -->
         @include('home.header')
-        <!-- end header section -->
-
         <section class="why_section layout_padding">
             <div class="container">
               <div class="heading_container heading_center">
@@ -257,14 +254,7 @@
               </div>
             </div>
           </section>
-
-        <!-- info section -->
-
         @include('home.footer')
-
-        <!-- end info section -->
-
-
         <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>

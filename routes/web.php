@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 route::get('/',[HomeController::class,'home']);
 
 Route::get('/dashboard', [HomeController::class, 'login_home'])->middleware(['auth','verified'])->name('dashboard');
+
 Route::get('/myorders', [HomeController::class, 'myorders'])->middleware(['auth','verified']);
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -56,6 +57,10 @@ route::post('confirm_order',[HomeController::class,'confirm_order'])->middleware
 route::get('shop',[HomeController::class,'shop']);
 
 route::get('why',[HomeController::class,'why']);
+
+route::get('testimonial',[HomeController::class,'testimonial']);
+
+route::get('contact_us',[HomeController::class,'contact_us']);
 
 Route::controller(HomeController::class)->group(function(){
     Route::get('stripe/{value}', 'stripe');
