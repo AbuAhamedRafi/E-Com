@@ -76,3 +76,7 @@ route::get('delivered/{id}',[AdminController::class,'delivered'])-> middleware([
 route::get('print_receipt/{id}',[AdminController::class,'print_receipt'])-> middleware(['auth', 'admin']);
 
 route::get('user',[AdminController::class,'user'])-> middleware(['auth', 'admin']);
+
+route::post('update-usertype', [AdminController::class, 'updateUserType'])->name('update-usertype')->middleware(['auth', 'admin']);
+
+route::post('delete-user', [AdminController::class, 'deleteUser'])->name('delete-user')->middleware(['auth', 'admin']);

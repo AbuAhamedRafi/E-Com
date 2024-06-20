@@ -51,6 +51,9 @@
                             <th>Phone</th>
                             <th>Address</th>
                             <th>Email</th>
+                            <th>User Type</th>
+                            <th>Update</th>
+                            <th>Delete User</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,6 +64,24 @@
                                 <td>{{ $user->phone }}</td>
                                 <td>{{ $user->address }}</td>
                                 <td>{{ $user->email }}</td>
+                                 <td>
+                                    <form action="{{ route('update-usertype') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $user->id }}">
+                                        <select name="usertype">
+                                            <option value="admin" {{ $user->usertype == 'admin' ? 'selected' : '' }}>Admin</option>
+                                            <option value="user" {{ $user->usertype == 'user' ? 'selected' : '' }}>User</option>
+                                        </select>
+                                        <td><button type="submit">Update</button></td>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="{{ route('delete-user') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $user->id }}">
+                                        <button type="submit" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
