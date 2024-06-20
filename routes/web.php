@@ -74,3 +74,5 @@ route::get('on_the_way/{id}',[AdminController::class,'on_the_way'])-> middleware
 route::get('delivered/{id}',[AdminController::class,'delivered'])-> middleware(['auth', 'admin']);
 
 route::get('print_receipt/{id}',[AdminController::class,'print_receipt'])-> middleware(['auth', 'admin']);
+
+route::get('user',[AdminController::class,'user'])-> middleware(['auth', 'admin']);

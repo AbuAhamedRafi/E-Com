@@ -25,5 +25,8 @@
             <li>
                 <a href="{{url('view_order')}}"><i class="icon-grid"></i>Orders</a>
             </li>
+            <li>
+                <a href="{{url('user')}}"><i class="icon-grid"></i>Users and Types</a>
+            </li>
         </ul>
     </nav>
