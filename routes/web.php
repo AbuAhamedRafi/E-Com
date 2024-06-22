@@ -44,6 +44,20 @@ route::post('edit_product/{id}',[AdminController::class,'edit_product'])-> middl
 
 route::get('product_search',[AdminController::class,'product_search'])-> middleware(['auth', 'admin']);
 
+route::get('view_order',[AdminController::class,'view_order'])-> middleware(['auth', 'admin']);
+
+route::get('on_the_way/{id}',[AdminController::class,'on_the_way'])-> middleware(['auth', 'admin']);
+
+route::get('delivered/{id}',[AdminController::class,'delivered'])-> middleware(['auth', 'admin']);
+
+route::get('print_receipt/{id}',[AdminController::class,'print_receipt'])-> middleware(['auth', 'admin']);
+
+route::get('user',[AdminController::class,'user'])-> middleware(['auth', 'admin']);
+
+route::post('update-usertype', [AdminController::class, 'updateUserType'])->name('update-usertype')->middleware(['auth', 'admin']);
+
+route::post('delete-user', [AdminController::class, 'deleteUser'])->name('delete-user')->middleware(['auth', 'admin']);
+
 route::get('productDetails/{id}',[HomeController::class,'productDetails']);
 
 route::get('add_cart/{id}',[HomeController::class,'add_cart'])->middleware(['auth','verified']);
@@ -66,17 +80,3 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('stripe/{value}', 'stripe');
     Route::post('stripe/{value}', 'stripePost')->name('stripe.post');
 });
-
-route::get('view_order',[AdminController::class,'view_order'])-> middleware(['auth', 'admin']);
-
-route::get('on_the_way/{id}',[AdminController::class,'on_the_way'])-> middleware(['auth', 'admin']);
-
-route::get('delivered/{id}',[AdminController::class,'delivered'])-> middleware(['auth', 'admin']);
-
-route::get('print_receipt/{id}',[AdminController::class,'print_receipt'])-> middleware(['auth', 'admin']);
-
-route::get('user',[AdminController::class,'user'])-> middleware(['auth', 'admin']);
-
-route::post('update-usertype', [AdminController::class, 'updateUserType'])->name('update-usertype')->middleware(['auth', 'admin']);
-
-route::post('delete-user', [AdminController::class, 'deleteUser'])->name('delete-user')->middleware(['auth', 'admin']);
